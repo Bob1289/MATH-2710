@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Solution to a Nonzero Matrix}
+\author{Benny Chen}
+\date{\today}
+
+\usepackage{color}
+\usepackage{amsthm}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In this paper, we will be proving that a linear system of equations with real coefficients has a unique solution if and only if the determinant of its associated matrix $A$ is nonzero. 
+We will do this by proving the following theorem:
+\\\\
+If the determinant of a matrix A is nonzero, then the system of equations $Ax = b$ has a unique solution.
+
+\section{Proof}
+
+Theorem: Let $A$ be a $n \times n$ matrix with nonzero determinant. Then, the system of equations $Ax = b$ has a unique solution.
+
+Let 
+\begin{equation}
+    A \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    x_3 \\
+    \vdots \\
+    \end{bmatrix}
+    = \begin{bmatrix}
+    b_1 \\
+    b_2 \\
+    b_3 \\
+    \vdots \\
+    \end{bmatrix}
+\end{equation}
+be a system of equations with real coefficients. 
+\\\\
+Let $A$ be a $n \times n$ matrix with nonzero determinant. 
+\\\\
+Let $x$ be a vector in $\mathbb{R}^n$ such that $Ax = b$. We will prove that $x$ is the unique solution to the system of equations $Ax = b$.
+\\\\
+We find if $det(A)$ is invertible.
+\\\\
+Suppose that $M$ is invertible and $det(M) = 0$
+\\\\
+Then there exists a matrix $B$ such that $B = M^{-1}$
+Which means that:
+\begin{equation}
+    MB = I
+\end{equation}
+Where $I$ is the identity matrix. We can then solve for:
+\begin{equation}
+    det(MB) = det(I)
+\end{equation}
+Due to the fact that $det(I) = 1$, we can then solve for $det(MB)$:
+\begin{equation}
+    det(B)0 = 0
+\end{equation}
+We can now see a that a contradiction has been made
+\begin{equation}
+    0 = 1
+\end{equation}
+Therefore a invertible matrix cannot have an determinant of 0.
+\\\\
+Since we know that $A$ must be invertible now, we solve for $Ax = b$ by left multipling both sides by $A^{-1}$ to get:
+\begin{equation}
+    A^{-1}Ax = A^{-1}b
+\end{equation}
+This means that:
+\begin{equation}
+    x = A^{-1}b
+\end{equation}
+We can now the original equation $Ax = b$ to get:
+\begin{equation}
+    A(A^{-1}b) = b
+\end{equation}
+With $AA^{-1} = I$, we can then solve for $b$:
+\begin{equation}
+    I * b = b
+\end{equation}
+So, 
+\begin{equation}
+    b = b
+\end{equation}
+So, $x = A^{-1}b$ is a solution to the system of equations $Ax = b$.
+\\\\
+We can now prove that $x$ is the unique solution to the system of equations $Ax = b$.
+\\\\
+Let $x$ be a solution to the system of equations. Then,
+\begin{equation}
+    Ax = b
+\end{equation}
+So then,
+\begin{equation}
+    A^{-1}Ax = A^{-1}b
+\end{equation}
+Which shows that:
+\begin{equation}
+    x = A^{-1}b
+\end{equation}
+Therefor, this shows that whenever there is a solution to the system of equations, then $x$ is the only unique solution to the system of equations.
+
+
+\end{document}
